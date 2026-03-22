@@ -125,10 +125,7 @@ int count = Player::getTotal(); // 优雅，不需要实例化
 
 ```cpp
 Player Misaki;
-
-...... 
-
-cout << misaki.getTotal(); // 或者写成 cout << A::getTotal(); // 记得写括号调用函数
+cout << Misaki.getTotal(); // 或者写成 cout << A::getTotal(); // 记得写括号调用函数
 
 ```
 
