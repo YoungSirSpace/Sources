@@ -6,7 +6,7 @@
 目的：保证对象不被修改，强制只允许调用 const 成员函数。不改变对象状态，只获得状态。编译器一旦发现在常成员函数中修改数据成员的值，将会报错。
 
 例如
-```
+``` cpp
 class Player {
 public:
     // 普通成员函数
@@ -24,7 +24,7 @@ private:
 
 代码案例与运行案例之一
 
-```
+``` cpp
 #include <iostream>
 
 class Rectangle {
