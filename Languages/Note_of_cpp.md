@@ -13,7 +13,7 @@ public:
     void move(int x, int y) { /* 修改坐标 */ }
 
     // 常成员函数
-    int getScore() const { 
+    int getScore() const { // 语法：const
         return score; // 只能读取，不能修改
     }
 
@@ -76,7 +76,7 @@ int main() {
 ```cpp
 class BankAccount {
 public:
-    static double interest_rate; // 类内声明
+    static double interest_rate; // 类内声明 // 语法：static
 };
 
 // 类外初始化（不加 static 关键字，但要加类名作用域 ::）
@@ -86,5 +86,49 @@ int main() {
     BankAccount a, b;
     // a 和 b 共享同一个 interest_rate
 }
+```
+
+**静态成员与普通成员最大的区别：没有 this 指针。**
+
+普通成员函数在调用时会隐式传递 this 指针，指向当前对象。而静态成员函数没有 this 指针。
+
+这意味着：
+
+-它不能访问非静态成员变量（因为它不知道该找哪个对象的变量）。
+
+-它不能调用非静态成员函数。
+
+-它可以直接通过类名调用，无需创建对象。
+
+```
+class Player {
+private:
+    static int total_players;
+    int id;
+
+public:
+    Player() { total_players++; }
+    
+    static int getTotal() { 
+        // return id; // 错误！静态函数看不到具体的 id
+        return total_players; // 正确：只能访问静态成员
+    }
+};
+
+// 调用方式
+int count = Player::getTotal(); // 优雅，不需要实例化
+```
+
+类的静态数据成员对该类的所有对象只有一个拷贝。
+
+静态成员除了通过对象来访问外，也可以直接通过类来访问。如下。
+
+```
+Player Misaki;
+
+...... 
+
+cout << misaki.getTotal(); // 或者写成 cout << A::getTotal(); // 记得写括号调用函数
+
 ```
 
