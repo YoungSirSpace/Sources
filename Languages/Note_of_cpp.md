@@ -5,9 +5,7 @@
 
 目的：保证对象不被修改，强制只允许调用 const 成员函数。不改变对象状态，只获得状态。
 
-<code>
-
-class Player {
+`class Player {
 public:
     // 普通成员函数
     void move(int x, int y) { /* 修改坐标 */ }
@@ -19,6 +17,4 @@ public:
 
 private:
     int score;
-};
-
-</code>
+};`
