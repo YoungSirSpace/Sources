@@ -64,3 +64,27 @@ int main() {
     return 0;
 }
 ```
+
+## 静态成员(static成员变量/函数)
+
+静态成员变量：属于**类**本身，而不是某个对象；静态成员函数：可以访问**静态成员变量**，但不能访问普通成员变量（因为没有 this 指针）。
+
+静态变量在类内只是声明，通常必须在类外进行定义和初始化（因为它不随对象创建而分配空间）。
+
+定义方法（内部声明和类外初始化）
+
+```cpp
+class BankAccount {
+public:
+    static double interest_rate; // 类内声明
+};
+
+// 类外初始化（不加 static 关键字，但要加类名作用域 ::）
+double BankAccount::interest_rate = 0.05; 
+
+int main() {
+    BankAccount a, b;
+    // a 和 b 共享同一个 interest_rate
+}
+```
+
