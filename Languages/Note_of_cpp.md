@@ -100,7 +100,7 @@ int main() {
 
 -它可以直接通过类名调用，无需创建对象。
 
-```
+```cpp
 class Player {
 private:
     static int total_players;
@@ -123,7 +123,7 @@ int count = Player::getTotal(); // 优雅，不需要实例化
 
 静态成员除了通过对象来访问外，也可以直接通过类来访问。如下。
 
-```
+```cpp
 Player Misaki;
 
 ...... 
